@@ -6,11 +6,18 @@
 // порядкові номери елементів масиву, які необхідно скласти. Наприклад, якщо ввели 3 та 5 – сумуються 3-й та 5-й елементи.
 // Функція повинна генерувати винятки, якщо були введені не числа, і коли одне з чисел або обидва більшого розміруза довжину масиву.
 // Напишіть код, який використовує цю функцію, передбачте обробку можливих винятків.
+const arr1 = [5, 9, 11, 8, 34, 35, 1, 6];
 const sumSliceArray = function (arr, first, second) {
   const elFirst = arr.find((el, idx) => idx === first);
   const elSecond = arr.find((el, idx) => idx === second);
   const sumArg = elFirst + elSecond;
-  if (first > arr.length || first > arr.length) {
+  if (
+    first > arr.length ||
+    first > arr.length ||
+    first == second ||
+    first < 0 ||
+    second < 0
+  ) {
     throw `The data of the set values  not correct`;
   }
   if (typeof first !== "number" || typeof second !== "number") {
@@ -20,13 +27,10 @@ const sumSliceArray = function (arr, first, second) {
 };
 
 try {
-  sumSliceArray();
-} catch (err) {
-  console.log("Error");
+  console.log(sumSliceArray(arr1, 3, -5));
+} catch (error) {
+  console.error(error);
 }
-const arr1 = [5, 9, 11, 8, 34, 35, 1, 6];
-console.log(sumSliceArray(arr1, 1, 3));
-
 // 2.
 // Створіть функцію checkAge(), яка запитує у користувача його ім'я, вік та статус
 // (адмін, модератор, користувач) та генерує модальне вікно з помилкою, якщо:вік користувача менше 18 або більше 70 років
