@@ -8,8 +8,9 @@
 // Напишіть код, який використовує цю функцію, передбачте обробку можливих винятків.
 const arr1 = [5, 9, 11, 8, 34, 35, 1, 6];
 const sumSliceArray = function (arr, first, second) {
-  const elFirst = arr.find((el, idx) => idx === first);
-  const elSecond = arr.find((el, idx) => idx === second);
+  const elFirst = arr[first];
+  const elSecond = arr[second];
+
   const sumArg = elFirst + elSecond;
   if (
     first > arr.length ||
@@ -27,7 +28,7 @@ const sumSliceArray = function (arr, first, second) {
 };
 
 try {
-  console.log(sumSliceArray(arr1, 3, -5));
+  console.log(sumSliceArray(arr1, 0, 1));
 } catch (error) {
   console.error(error);
 }
