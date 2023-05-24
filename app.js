@@ -110,7 +110,7 @@ class MonthException extends Error {
   constructor(message) {
     super(message);
     this.name = "MonthException";
-    this.message = message;
+    this.message = "Incorrect month number";
   }
 }
 
@@ -142,19 +142,16 @@ const showMonthName = function (month) {
       return "December";
   }
   if (typeof month !== "number" || month <= 0 || month > 12) {
-    throw new MonthException("Incorrect month number");
+    throw new MonthException(MonthException.message);
   }
 };
 
 try {
-  showMonthName();
+  console.log(showMonthName(true));
 } catch (error) {
-  console.log(error.name);
-  console.log(error.message);
-} finally {
-  console.log("thats all");
+  console.error(error.name);
+  console.error(error.message);
 }
-console.log(showMonthName(5));
 // Реалізуйте функцію showUser(id), яка приймає параметром користувацьке id і повертає об’єкт, який містить значення переданої id.
 // Також функція викидає помилку у разі якщо введено від’ємне id.
 // Реалізуйте функцію showUsers(ids), яка приймає параметром масив користувацьких айді ids,
