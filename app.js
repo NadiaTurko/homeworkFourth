@@ -40,27 +40,36 @@ try {
 //  У полі статус введено неправильне слово (тип помилки EvalError).в полі вік введено нечислове значення.
 //   У всіх інших випадках користувач отримає доступ до перегляду фільму.
 //    У блоці catch передбачена можливість виведення назви та опису помилки.
-const name = String(prompt("Введіть ім'я"));
-const age = Number(prompt("Введіть свій вік"));
-const status = String(prompt("Введіть статус: адмін,  модератор, користувач"));
+let name;
+let age;
+let status;
 const checkAge = function (name, age, status) {
+  name = prompt("Введіть ім'я");
   if (typeof name !== "string") {
-    throw `The name was entered incorrectlyg`;
+    throw "The name was entered incorrectly";
   }
-  if (typeof age !== "number" || age > 18 || age < 70) {
-    throw `RangeError`;
+  age = +prompt("Введіть свій вік");
+
+  if (typeof age !== "number") {
+    throw "The age was entered incorrectl";
   }
+  if (age < 18 || age > 70) {
+    throw "RangeError";
+  }
+  status = prompt("Введіть статус: адмін,  модератор, користувач");
+  if (status !== "адмін" && status !== "модератор" && status !== "користувач") {
+    throw "EvalError";
+  }
+
   if (name == "" || age == "" || status == "") {
-    throw `The field is empty! Please enter your age з типом помилки Error`;
+    throw "The field is empty! Please enter your age з типом помилки Error";
   }
-  if (status !== "адмін" || status !== "модератор" || status !== "користувач") {
-    throw `EvalError`;
-  }
-  return alert(`користувач отримає доступ до перегляду фільму`);
+
+  return alert("Користувач отримає доступ до перегляду фільму");
 };
 
 try {
-  console.log(checkAge());
+  checkAge(name, age, status);
 } catch (error) {
   console.error(error);
 }
