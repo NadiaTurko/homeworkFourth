@@ -56,7 +56,11 @@ const calcRectangleArea = function (width, height) {
   }
   return areaRectangle;
 };
-console.log(calcRectangleArea(10, 10));
+try {
+  console.log(calcRectangleArea(10, 5));
+} catch (error) {
+  console.error(error);
+}
 // // 4.
 // Створіть клас MonthException, конструктор якого приймає параметр message і ініціалізує поле name значенням MonthException.
 // Реалізуйте функцію showMonthName(month), в якій параметр month – це порядковий номер місяця в році.
