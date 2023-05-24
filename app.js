@@ -47,7 +47,7 @@ const checkAge = function (name, age, status) {
   if (typeof name !== "string") {
     throw `The name was entered incorrectlyg`;
   }
-  if (typeof age !== "number" || age < 18 || age > 70) {
+  if (typeof age !== "number" || age > 18 || age < 70) {
     throw `RangeError`;
   }
   if (name == "" || age == "" || status == "") {
