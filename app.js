@@ -40,6 +40,30 @@ try {
 //  У полі статус введено неправильне слово (тип помилки EvalError).в полі вік введено нечислове значення.
 //   У всіх інших випадках користувач отримає доступ до перегляду фільму.
 //    У блоці catch передбачена можливість виведення назви та опису помилки.
+const name = String(prompt("Введіть ім'я"));
+const age = Number(prompt("Введіть свій вік"));
+const status = String(prompt("Введіть статус: адмін,  модератор, користувач"));
+const checkAge = function (name, age, status) {
+  if (typeof name !== "string") {
+    throw `The name was entered incorrectlyg`;
+  }
+  if (typeof age !== "number" || age < 18 || age > 70) {
+    throw `RangeError`;
+  }
+  if (name == "" || age == "" || status == "") {
+    throw `The field is empty! Please enter your age з типом помилки Error`;
+  }
+  if (status !== "адмін" || status !== "модератор" || status !== "користувач") {
+    throw `EvalError`;
+  }
+  return alert(`користувач отримає доступ до перегляду фільму`);
+};
+
+try {
+  console.log(checkAge());
+} catch (error) {
+  console.error(error);
+}
 // 3.
 // Реалізуйте функцію calcRectangleArea(width, height), яка приймає 2 параметри ширина прямокутника width і
 //  висота прямокутника height
