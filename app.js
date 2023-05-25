@@ -158,7 +158,38 @@ try {
 // перевіряє з використанням функції showUser() кожен елемент масиву ids на коректність,
 //  в разі виключної ситуації виводить повідомлення про помилку. Функція showUsers(ids)
 //   повертає масив об’єктів, де значеннями ключів є коректні елементи ids.
+const showUser = function (id) {
+  const idObj = {};
 
+  if (typeof id !== "number") {
+    throw `type id is not Number`;
+  }
+  if (id <= 0) {
+    throw `ID must not be negative `;
+  }
+  idObj["id"] = id;
+  return idObj;
+};
+
+try {
+  console.log(showUser(-5));
+} catch (error) {
+  console.error(error);
+}
+
+const showUsers = function (ids) {
+  const idsArr = ids.filter((element) => element >= 0);
+  //   const negativeElem = ids.find((element) => element <= 0);
+  const idsArrResult = idsArr.map((element) => ({ id: element }));
+
+  return idsArrResult;
+};
+
+try {
+  console.log(showUsers([7, 12, 44, 22]));
+} catch (error) {
+  console.error(error);
+}
 // Приклад роботи програми:
 // showUsers([7, -12, 44, 22]);
 // Error: ID must not be negative: -12
