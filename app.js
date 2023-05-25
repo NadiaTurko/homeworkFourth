@@ -159,37 +159,38 @@ try {
 //   повертає масив об’єктів, де значеннями ключів є коректні елементи ids.
 const showUser = function (id) {
   const idObj = {};
-
-  if (typeof id !== "number") {
-    throw `type id is not Number`;
-  }
   if (id <= 0) {
     throw `ID must not be negative `;
   }
+  if (typeof id !== "number") {
+    throw `type id is not Number`;
+  }
+
   idObj["id"] = id;
   return idObj;
 };
 
 try {
-  console.log(showUser(-5));
+  console.log(showUser(5));
 } catch (error) {
   console.error(error);
 }
-
+const arr1 = [7, -12, 44, 22];
 const showUsers = function (ids) {
-  const idsArr = ids.filter((element) => element >= 0);
-  //   const negativeElem = ids.find((element) => element <= 0);
-  const idsArrResult = idsArr.map((element) => ({ id: element }));
+  const idsArrResult = ids
+    .filter(function (element) {
+      return element >= 0;
+    })
+    .map(function (element) {
+      return showUser(element);
+    });
 
   return idsArrResult;
 };
 
 try {
-  console.log(showUsers([7, 12, 44, 22]));
+  console.log(showUsers(arr1));
 } catch (error) {
   console.error(error);
 }
-// Приклад роботи програми:
-// showUsers([7, -12, 44, 22]);
-// Error: ID must not be negative: -12
-// [ {id: 7}, {id: 44}, {id: 22} ]
+
