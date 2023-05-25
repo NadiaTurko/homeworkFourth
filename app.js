@@ -40,38 +40,37 @@ try {
 //  У полі статус введено неправильне слово (тип помилки EvalError).в полі вік введено нечислове значення.
 //   У всіх інших випадках користувач отримає доступ до перегляду фільму.
 //    У блоці catch передбачена можливість виведення назви та опису помилки.
-let name;
-let age;
-let status;
+const name = String(prompt("Введіть ім'я"));
+const age = Number(prompt("Введіть свій вік"));
+const status = String(prompt("Введіть статус: адмін,  модератор, користувач"));
 const checkAge = function (name, age, status) {
-  name = prompt("Введіть ім'я");
   if (typeof name !== "string") {
-    throw "The name was entered incorrectly";
+    throw `The name was entered incorrectly`;
   }
-  age = +prompt("Введіть свій вік");
-
   if (typeof age !== "number") {
-    throw "The age was entered incorrectl";
+    throw `The age was entered incorrectl`;
   }
-  if (age < 18 || age > 70) {
-    throw "RangeError";
+  if (age <= 18 || age >= 70) {
+    throw new RangeError(`The argument must be between 18 and 70  `);
   }
-  status = prompt("Введіть статус: адмін,  модератор, користувач");
+
   if (status !== "адмін" && status !== "модератор" && status !== "користувач") {
-    throw "EvalError";
+    throw new EvalError("адмін", "модератор", "користувач");
   }
 
   if (name == "" || age == "" || status == "") {
-    throw "The field is empty! Please enter your age з типом помилки Error";
+    throw `The field is empty! Please enter your age з типом помилки Error`;
   }
 
-  return alert("Користувач отримає доступ до перегляду фільму");
+  return alert(`Користувач отримає доступ до перегляду фільму`);
 };
 
 try {
-  checkAge(name, age, status);
+  console.log(checkAge(name, age, status));
 } catch (error) {
   console.error(error);
+  console.error(error instanceof RangeError);
+  console.error(error instanceof EvalError);
 }
 // 3.
 // Реалізуйте функцію calcRectangleArea(width, height), яка приймає 2 параметри ширина прямокутника width і
