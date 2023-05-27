@@ -70,7 +70,7 @@ const checkAge = function (name, age, status) {
   if (typeof age !== "number") {
     throw "Wrong type given, expected a number";
   }
-  if (age >= 18 || age <= 70) {
+  if (age <= 18 || age >= 70) {
     throw new RangeError(`The argument must be between 18 and 70  `);
   }
 
