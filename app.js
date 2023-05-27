@@ -56,38 +56,38 @@
 //   У всіх інших випадках користувач отримає доступ до перегляду фільму.
 //    У блоці catch передбачена можливість виведення назви та опису помилки.
 
-// const name = prompt("Введіть ім'я");
-// const age = prompt("Введіть свій вік");
-// const status = prompt("Введіть статус: адмін,  модератор, користувач");
+const name = prompt("Введіть ім'я");
+const age = prompt("Введіть свій вік");
+const status = prompt("Введіть статус: адмін,  модератор, користувач");
 
-// const checkAge = function (name, age, status) {
-//   if (name == "" || age == "" || status == "") {
-//     throw `The field is empty! Please enter your age з типом помилки Error`;
-//   }
-//   if (typeof name !== "string") {
-//     throw "Wrong type given, expected a string";
-//   }
-//   if (typeof age !== "number") {
-//     throw "Wrong type given, expected a number";
-//   }
-//   if (age <= 18 || age >= 70) {
-//     throw new RangeError(`The argument must be between 18 and 70  `);
-//   }
+const checkAge = function (name, age, status) {
+  if (name == "" || age == "" || status == "") {
+    throw `The field is empty! Please enter your age з типом помилки Error`;
+  }
+  if (typeof name !== "string") {
+    throw "Wrong type given, expected a string";
+  }
+  if (typeof age !== "number") {
+    throw "Wrong type given, expected a number";
+  }
+  if (age >= 18 || age <= 70) {
+    throw new RangeError(`The argument must be between 18 and 70  `);
+  }
 
-//   if (status !== "адмін" || status !== "модератор" || status !== "користувач") {
-//     throw new EvalError("адмін", "модератор", "користувач");
-//   }
+  if (status !== "адмін" || status !== "модератор" || status !== "користувач") {
+    throw new EvalError("адмін", "модератор", "користувач");
+  }
 
-//   return alert(`Користувач отримає доступ до перегляду фільму`);
-// };
+  return alert(`Користувач отримає доступ до перегляду фільму`);
+};
 
-// try {
-//   console.log(checkAge(name, age, status));
-// } catch (error) {
-//   console.error(error);
-//   console.error(error instanceof RangeError);
-//   console.error(error instanceof EvalError);
-// }
+try {
+  console.log(checkAge(name, age, status));
+} catch (error) {
+  console.error(error);
+  console.error(error instanceof RangeError);
+  console.error(error instanceof EvalError);
+}
 // 3.
 // Реалізуйте функцію calcRectangleArea(width, height), яка приймає 2 параметри ширина прямокутника width і
 //  висота прямокутника height
