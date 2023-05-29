@@ -55,18 +55,18 @@
 //  У полі статус введено неправильне слово (тип помилки EvalError).в полі вік введено нечислове значення.
 //   У всіх інших випадках користувач отримає доступ до перегляду фільму.
 //    У блоці catch передбачена можливість виведення назви та опису помилки.
-let name = prompt("Введіть ім'я");
-const age = +prompt("Введіть свій вік");
-const status = prompt("Введіть статус: адмін,  модератор, користувач");
+let name;
+let age;
+let status;
 
 const checkAge = function (name, age, status) {
-  if (typeof name !== "string") {
-    throw "Wrong type given, expected a string";
-  }
   if (name === "" || age === "" || status === "") {
     throw "The field is empty! Please enter your age з типом помилки Error";
   }
 
+  if (typeof name !== "string") {
+    throw "Wrong type given, expected a string";
+  }
   if (typeof age !== "number") {
     throw "Wrong type given, expected a number";
   }
@@ -78,11 +78,13 @@ const checkAge = function (name, age, status) {
     throw new EvalError("Data: адмін, модератор, користувач");
   }
 
-  return alert("Користувач отримає доступ до перегляду фільму");
+  return alert(
+    `Користувач отримає доступ до перегляду фільму  ${typeof name}, ${typeof age}, ${status}`
+  );
 };
 
 try {
-  console.log(checkAge(name, age, status));
+  console.log(checkAge("Nadia", 22, "адмін"));
 } catch (error) {
   console.error(error);
 }
