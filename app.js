@@ -175,7 +175,6 @@ try {
 //  в разі виключної ситуації виводить повідомлення про помилку. Функція showUsers(ids)
 //   повертає масив об’єктів, де значеннями ключів є коректні елементи ids.
 const showUser = function (id) {
-  const idObj = {};
   if (id <= 0) {
     throw `ID must not be negative `;
   }
