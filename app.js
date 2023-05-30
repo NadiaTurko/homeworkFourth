@@ -182,15 +182,16 @@ const showUser = function (id) {
   if (typeof id !== "number") {
     throw `type id is not Number`;
   }
-  idObj["id"] = id;
-  return idObj;
+  return { id };
 };
 
+
 try {
-  console.log(showUser(5));
+  console.log(showUser("5"));
 } catch (error) {
   console.error(error);
 }
+
 const arr1 = [7, -12, 44, 22];
 const showUsers = function (ids) {
   const negativeElem = ids.find(function (element) {
@@ -218,7 +219,7 @@ try {
   console.error(error);
 }
 
-// Приклад роботи програми:
-// showUsers([7, -12, 44, 22]);
-// Error: ID must not be negative: -12
-// [ {id: 7}, {id: 44}, {id: 22} ]
+// // Приклад роботи програми:
+// // showUsers([7, -12, 44, 22]);
+// // Error: ID must not be negative: -12
+// // [ {id: 7}, {id: 44}, {id: 22} ]
